@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Big Screen Timer</title>
+
+<style>
+html,body{
+  margin:0;
+  padding:0;
+  background:black;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  font-family:Arial, sans-serif;
+}
+
+#timer{
+  color:#00ffff;
+  font-size:12vw; /* big responsive text */
+  text-align:center;
+  text-shadow:
+    0 0 10px #00ffff,
+    0 0 20px #00ffff,
+    0 0 40px #00ffff,
+    0 0 80px #00ffff;
+}
+</style>
+</head>
+
+<body>
+
+<div id="timer"></div>
+
+<script>
+function updateClock(){
+  const now = new Date();
+
+  const h = String(now.getHours()).padStart(2,'0');
+  const m = String(now.getMinutes()).padStart(2,'0');
+  const s = String(now.getSeconds()).padStart(2,'0');
+
+  document.getElementById("timer").textContent = `${h}:${m}:${s}`;
+}
+
+setInterval(updateClock,1000);
+updateClock();
+</script>
+
+</body>
+</html>
